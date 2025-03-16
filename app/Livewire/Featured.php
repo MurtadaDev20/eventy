@@ -9,7 +9,7 @@ class Featured extends Component
 {
     public function render()
     {
-        $events_featured = Event::where('featured', 1)->get();
+        $events_featured = Event::where('featured', 1)->Latest()->get();
         return view('livewire.featured',
             [
                 'events_featured' => $events_featured

@@ -37,17 +37,12 @@
   <!-- الهيدر: الشعار وقائمة التنقل -->
   @include('events.body.nav')
 
-  <!-- قسم المقدمة (Hero Section) -->
-  @include('events.body.intro')
 
   <!-- قسم الأحداث المميزة مع سلايدر للبطاقات الكاملة -->
-      @livewire('featured')
-      
-      <!-- قسم آخر الأحداث -->
-      @livewire('latest')
+      @yield('content')
 
   <!-- قسم من نحن -->
-  @include('events.body.aboutUs')
+  {{-- @include('events.body.aboutUs') --}}
 
   <!-- الفوتر -->
   @include('events.body.footer')

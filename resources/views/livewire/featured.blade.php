@@ -13,8 +13,8 @@
                   <img src="{{ Storage::url($event->image)}}" alt="مهرجان السينما" class="w-full h-56 object-cover" />
                   <div class="p-6 flex flex-col">
                     <h3 class="text-2xl font-semibold mb-2">{{$event->title}}</h3>
-                    <p class="text-gray-600 mb-4">5 مارس 2025 - بغداد</p>
-                    <a href="#" class="mt-auto self-start bg-indigo-600 text-white font-semibold px-4 py-2 rounded hover:bg-indigo-700 transition-colors duration-300">
+                    <p class="text-gray-600 mb-4">{{ strtolower(\Carbon\Carbon::parse($event->start_date)->format('Y - F - d')) }}- {{$event->address}}</p>
+                    <a href="{{ route('event', $event->id) }}"    class="mt-auto self-start bg-indigo-600 text-white font-semibold px-4 py-2 rounded hover:bg-indigo-700 transition-colors duration-300">
                       معرفة المزيد
                     </a>
                   </div>

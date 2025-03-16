@@ -19,3 +19,9 @@ Route::middleware([
 Route::get('/events', function () {
     return view('events.master');
 })->name('events');
+
+Route::get('/event/{id}', function () {
+    return view('events.main.show-single-event', [
+        'id' => request()->route('id')
+    ]);
+})->name('event');

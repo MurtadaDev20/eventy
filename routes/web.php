@@ -18,4 +18,4 @@ Route::middleware([
 
 Route::get('/events', function () {
     return view('events.master');
-});
+})->name('events');

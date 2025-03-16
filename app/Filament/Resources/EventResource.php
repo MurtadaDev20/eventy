@@ -36,6 +36,9 @@ class EventResource extends Resource
                         Forms\Components\TextInput::make('title')
                             ->required()
                             ->maxLength(255),
+                        Forms\Components\TextInput::make('address')
+                            ->required()
+                            ->maxLength(255),
                         Forms\Components\RichEditor::make('description')
                             ->fileAttachmentsDirectory('events/images')->columnSpanFull()
                             ->required(),
@@ -69,6 +72,8 @@ class EventResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('start_date')
                     ->dateTime()

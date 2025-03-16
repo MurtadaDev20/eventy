@@ -41,10 +41,10 @@
   @include('events.body.intro')
 
   <!-- قسم الأحداث المميزة مع سلايدر للبطاقات الكاملة -->
-      @yield('featured')
+      @livewire('featured')
       
       <!-- قسم آخر الأحداث -->
-      @yield('latest')
+      @livewire('latest')
 
   <!-- قسم من نحن -->
   @include('events.body.aboutUs')
@@ -64,9 +64,9 @@
       spaceBetween: 20,
       autoplay: { delay: 3000 },
       breakpoints: {
-        640: { slidesPerView: 1 },
+        640: { slidesPerView: 3 },
         768: { slidesPerView: 2 },
-        1024: { slidesPerView: 4 },
+        1024: { slidesPerView: 3 },
       },
     });
     // تهيئة WOW.js بعد تحميل الصفحة

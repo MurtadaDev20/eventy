@@ -21,8 +21,8 @@
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
+            {{-- @livewire('navigation-menu') --}}
+            @include('events.body.nav')
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">

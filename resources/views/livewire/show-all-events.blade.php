@@ -50,26 +50,33 @@
                   <input type="text" wire:model.live.debounce.450ms="search" placeholder="ابحث عن فعالية..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
                 <!-- فلتر حسب الفئة -->
-                <div class="bg-white p-6 rounded-lg shadow">
-                  <h3 class="text-xl font-bold mb-4">تصفية حسب الفئة</h3>
-                  <select wire:model.live="category"  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <option value="">جميع الفئات</option>
-                    @foreach ($categories as $id => $name)
-                    <option value="{{ $id }}">{{ $name }}</option>
-                    @endforeach
-                    
-                  </select>
-                </div>
-                <!-- فلتر حسب المدينة -->
-                <div class="bg-white p-6 rounded-lg shadow">
-                  <h3 class="text-xl font-bold mb-4">تصفية حسب المدينة</h3>
-                  <select wire:model.live="governoratSelected" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <option value="">جميع المدن</option>
-                    @foreach ($governorate as $gov)
-                        <option value="{{ $gov }}">{{ $gov }}</option>
-                    @endforeach
-                </select>
-                </div>
+                <!-- فلتر حسب الفئة -->
+                  <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب الفئة</h3>
+                    <select wire:model.live="category" 
+                        class="w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
+                        <option value="" class="text-gray-500 font-semibold py-2">جميع الفئات</option>
+                        @foreach ($categories as $id => $name)
+                            <option value="{{ $id }}" class="text-gray-800 font-medium hover:bg-indigo-100 hover:text-indigo-600">
+                                {{ $name }}
+                            </option>
+                        @endforeach
+                    </select>
+                  </div>
+
+                  <!-- فلتر حسب المدينة -->
+                  <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب المدينة</h3>
+                    <select wire:model.live="governoratSelected" 
+                        class="w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
+                        <option value="" class="text-gray-500 font-semibold py-2">جميع المدن</option>
+                        @foreach ($governorate as $gov)
+                            <option value="{{ $gov }}" class="text-gray-800 font-medium hover:bg-indigo-100 hover:text-indigo-600">
+                                {{ $gov }}
+                            </option>
+                        @endforeach
+                    </select>
+                  </div>
               </aside>
             <!-- عمود المحتوى الرئيسي (مدونة الأحداث) -->
             {{-- <div class="md:w-3/5"></div> --}}

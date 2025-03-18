@@ -44,6 +44,7 @@ class UserResource extends Resource
     {
         return $table
         ->columns([
+            Tables\Columns\ImageColumn::make('profile_photo_path'),
             Tables\Columns\TextColumn::make('name')
                 ->searchable(),
             Tables\Columns\TextColumn::make('email')

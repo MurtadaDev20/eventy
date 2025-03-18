@@ -50,33 +50,49 @@
                   <input type="text" wire:model.live.debounce.450ms="search" placeholder="ابحث عن فعالية..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 </div>
                 <!-- فلتر حسب الفئة -->
-                <!-- فلتر حسب الفئة -->
-                  <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب الفئة</h3>
-                    <select wire:model.live="category" 
-                        class="w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
-                        <option value="" class="text-gray-500 font-semibold py-2">جميع الفئات</option>
-                        @foreach ($categories as $id => $name)
-                            <option value="{{ $id }}" class="text-gray-800 font-medium hover:bg-indigo-100 hover:text-indigo-600">
-                                {{ $name }}
-                            </option>
-                        @endforeach
-                    </select>
-                  </div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب الفئة</h3>
+  <div class="relative">
+      <select wire:model.live="category" 
+          class="appearance-none w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
+          <option value="" class="text-gray-500 font-semibold">جميع الفئات</option>
+          @foreach ($categories as $id => $name)
+              <option value="{{ $id }}" class="text-gray-800 font-medium">
+                  {{ $name }}
+              </option>
+          @endforeach
+      </select>
+      <!-- Custom Arrow Icon -->
+      <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+      </div>
+  </div>
+</div>
 
-                  <!-- فلتر حسب المدينة -->
-                  <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب المدينة</h3>
-                    <select wire:model.live="governoratSelected" 
-                        class="w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
-                        <option value="" class="text-gray-500 font-semibold py-2">جميع المدن</option>
-                        @foreach ($governorate as $gov)
-                            <option value="{{ $gov }}" class="text-gray-800 font-medium hover:bg-indigo-100 hover:text-indigo-600">
-                                {{ $gov }}
-                            </option>
-                        @endforeach
-                    </select>
-                  </div>
+<!-- فلتر حسب المدينة -->
+<div class="bg-white p-6 rounded-lg shadow-md">
+  <h3 class="text-xl font-bold mb-4 text-gray-800">تصفية حسب المدينة</h3>
+  <div class="relative">
+      <select wire:model.live="governoratSelected" 
+          class="appearance-none w-full bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300">
+          <option value="" class="text-gray-500 font-semibold">جميع المدن</option>
+          @foreach ($governorate as $gov)
+              <option value="{{ $gov }}" class="text-gray-800 font-medium">
+                  {{ $gov }}
+              </option>
+          @endforeach
+      </select>
+      <!-- Custom Arrow Icon -->
+      <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+          <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+      </div>
+  </div>
+</div>
+
               </aside>
             <!-- عمود المحتوى الرئيسي (مدونة الأحداث) -->
             {{-- <div class="md:w-3/5"></div> --}}

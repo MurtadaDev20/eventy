@@ -43,4 +43,9 @@ class Event extends Model
             $event->created_by = auth()->user()->id;
         });
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'event_id');
+    }
 }

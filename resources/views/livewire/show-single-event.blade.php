@@ -76,49 +76,12 @@
               </button>
             </div>
           </div> --}}
+        {{-- </div> --}}
+        
 
           <!-- التعليقات (Comments) -->
-          <div>
-            <h3 class="text-xl font-semibold mb-4">التعليقات</h3>
-            <!-- قائمة التعليقات -->
-            <div class="space-y-4 mb-6">
-              <!-- تعليق 1 -->
-              <div class="bg-gray-100 p-3 rounded">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="font-bold text-sm">أحمد</span>
-                  <span class="text-xs text-gray-500">منذ ساعة</span>
-                </div>
-                <p class="text-gray-700 text-sm">فعالية جميلة ومميزة، أتمنى تكرارها في محافظات أخرى.</p>
-              </div>
-              
-            </div>
-            <!-- نموذج إضافة تعليق جديد -->
-            @auth
-                
-            <form class="space-y-3">
-              
-              <div>
-                <label class="block text-sm font-medium mb-1" for="commentContent">التعليق</label>
-                <textarea
-                  id="commentContent"
-                  class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  rows="4"
-                  placeholder="اكتب تعليقك هنا..."
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors duration-300"
-              >
-                إضافة تعليق
-              </button>
-            </form>
-            @else
-            <p class="text-gray-600 text-sm">يجب عليك تسجيل الدخول لتتمكن من إضافة تعليق.</p>
-            <a href="{{ route('login') }}" class="text-indigo-600 hover:underline">تسجيل الدخول</a>
-            @endauth
-          </div>
+          {{-- @livewire('event-comment') --}}
+          <livewire:event-comment :key="'comments' . $event->id" :$event />
         </div>
       </div>
 

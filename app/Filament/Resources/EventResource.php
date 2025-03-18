@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\GovernorateEnum;
 use App\Filament\Resources\EventResource\Pages;
 use App\Filament\Resources\EventResource\RelationManagers;
 use App\Models\Category;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class EventResource extends Resource
-{
+{ 
     protected static ?string $model = Event::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -36,6 +37,9 @@ class EventResource extends Resource
                         Forms\Components\TextInput::make('title')
                             ->required()
                             ->maxLength(255),
+                        Forms\Components\Select::make('governorate')
+                        ->options(GovernorateEnum::all())
+                        ->required(),
                         Forms\Components\TextInput::make('address')
                             ->required()
                             ->maxLength(255),

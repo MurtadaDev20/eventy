@@ -12,8 +12,8 @@
       <!-- قائمة التنقل الرئيسية (للشاشات المتوسطة والكبيرة) -->
       <ul id="menu" class="hidden md:flex space-x-8 text-lg">
         <li><a href="{{ route('events') }}  " wire:navigate class="hover:text-gray-300 transition">الرئيسية</a></li>
-        <li><a href="#latest" class="hover:text-gray-300 transition">الفعاليات</a></li>
-        <li><a href="#about" class="hover:text-gray-300 transition">من نحن</a></li>
+        <li><a href="{{ route('allevent') }}  " wire:navigate class="hover:text-gray-300 transition">الفعاليات</a></li>
+        <li><a href="{{ route('events','#about') }}" wire:navigate class="hover:text-gray-300 transition">من نحن</a></li>
         <li><a href="#contact" class="hover:text-gray-300 transition">تواصل معنا</a></li>
         <li>
             @auth
@@ -28,7 +28,7 @@
     <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
       <ul class="px-4 pt-2 pb-4 space-y-4">
         <li><a href="{{ route('events') }}  " wire:navigate class="block hover:text-gray-300 transition">الرئيسية</a></li>
-        <li><a href="#latest" class="block hover:text-gray-300 transition">الفعاليات</a></li>
+        <li><a href="{{ route('allevent') }}  " wire:navigate class="block hover:text-gray-300 transition">الفعاليات</a></li>
         <li><a href="#about" class="block hover:text-gray-300 transition">من نحن</a></li>
         <li><a href="#contact" class="block hover:text-gray-300 transition">تواصل معنا</a></li>
         <li>

@@ -12,7 +12,7 @@
     <!-- محتوى البطل -->
     <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
       <h1 class="text-3xl md:text-4xl font-bold mb-2">{{$event->title}}</h1>
-      <p class="text-lg md:text-xl mb-2">{{ strtolower(\Carbon\Carbon::parse($event->start_date)->format('Y - F - d')) }}- {{$event->address}}</p>
+      <p class="text-lg md:text-xl mb-2">{{ \Carbon\Carbon::parse($event->start_date)->locale('ar')->translatedFormat('Y-F-d') }}- {{$event->address}}</p>
       <p class="text-sm md:text-base">{{$event->address}}</p>
     </div>
   </section>
@@ -128,8 +128,8 @@
         <div class="bg-white p-6 rounded shadow">
           <h3 class="text-xl font-semibold mb-4">تفاصيل سريعة</h3>
           <ul class="space-y-2 text-sm text-gray-700">
-            <li><strong>يبدأ في :</strong> {{ $event->start_date }}</li>
-            <li><strong>ينتهي في :</strong> {{ $event->end_date }}</li>
+            <li><strong>يبدأ في :</strong> {{ \Carbon\Carbon::parse($event->start_date)->locale('ar')->translatedFormat('Y-F-d - h:m') }}</li>
+            <li><strong>ينتهي في :</strong> {{ \Carbon\Carbon::parse($event->end_date)->locale('ar')->translatedFormat('Y-F-d - h:m') }}</li>
             <li><strong>العنوان : </strong> {{$event->address}}</li>
             {{-- <li><strong>رسوم الدخول:</strong> مجانية</li> --}}
           </ul>

@@ -41,7 +41,8 @@
   @include('events.body.intro')
 
   <!-- قسم الأحداث المميزة مع سلايدر للبطاقات الكاملة -->
-      @livewire('featured')
+      {{-- @livewire('featured') --}}
+      <livewire:featured/>
       
       <!-- قسم آخر الأحداث -->
       @livewire('latest')

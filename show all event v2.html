@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عرض كل الأحداث - فعاليات العراق</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="antialiased text-gray-800">
+  <!-- ناف بار (يمكن استخدام نفس التصميم من الصفحة الرئيسية) -->
+  <nav class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="text-2xl font-bold">فعاليات العراق</div>
+      <ul class="hidden md:flex space-x-8 text-lg">
+        <li><a href="#" class="hover:text-gray-300 transition">الرئيسية</a></li>
+        <li><a href="#latest" class="hover:text-gray-300 transition">الفعاليات</a></li>
+        <li><a href="#about" class="hover:text-gray-300 transition">من نحن</a></li>
+        <li><a href="#contact" class="hover:text-gray-300 transition">تواصل معنا</a></li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+      <ul class="px-4 pt-2 pb-4 space-y-4">
+        <li><a href="#" class="block hover:text-gray-300 transition">الرئيسية</a></li>
+        <li><a href="#latest" class="block hover:text-gray-300 transition">الفعاليات</a></li>
+        <li><a href="#about" class="block hover:text-gray-300 transition">من نحن</a></li>
+        <li><a href="#contact" class="block hover:text-gray-300 transition">تواصل معنا</a></li>
+      </ul>
+    </div>
+    <script>
+      document.getElementById('menu-toggle').addEventListener('click', function(){
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </nav>
+
+  <!-- قسم عرض كل الأحداث بنمط المدونة -->
+  <section class="py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-8 text-center">كل الأحداث</h2>
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- عمود المحتوى الرئيسي (مدونة الأحداث) -->
+        <div class="w-full md:w-2/3 space-y-8">
+          <!-- بطاقة حدث 1 -->
+          <article class="bg-white rounded-lg shadow overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
+            <img src="https://picsum.photos/seed/blog1/800/400" alt="عنوان الحدث 1" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">عنوان الحدث 1</h3>
+              <p class="text-gray-600 text-sm mb-4">20 مارس 2025 - بغداد</p>
+              <p class="text-gray-700">
+                مقتطف من وصف الحدث يظهر لفترة قصيرة مع عرض لبعض التفاصيل لجذب اهتمام الزائر...
+              </p>
+              <a href="#" class="text-indigo-600 hover:underline mt-4 inline-block">قراءة المزيد</a>
+            </div>
+          </article>
+          <!-- بطاقة حدث 2 -->
+          <article class="bg-white rounded-lg shadow overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
+            <img src="https://picsum.photos/seed/blog2/800/400" alt="عنوان الحدث 2" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">عنوان الحدث 2</h3>
+              <p class="text-gray-600 text-sm mb-4">15 أبريل 2025 - أربيل</p>
+              <p class="text-gray-700">
+                هنا مقتطف آخر من وصف الحدث مع بعض المعلومات التي تهم الزائر وتشجعه على معرفة المزيد...
+              </p>
+              <a href="#" class="text-indigo-600 hover:underline mt-4 inline-block">قراءة المزيد</a>
+            </div>
+          </article>
+          <!-- بطاقة حدث 3 -->
+          <article class="bg-white rounded-lg shadow overflow-hidden transition transform hover:scale-105 hover:shadow-lg">
+            <img src="https://picsum.photos/seed/blog3/800/400" alt="عنوان الحدث 3" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">عنوان الحدث 3</h3>
+              <p class="text-gray-600 text-sm mb-4">10 مايو 2025 - البصرة</p>
+              <p class="text-gray-700">
+                وصف مختصر للحدث يُظهر النقاط الأساسية للفعالية ويُثير فضول القارئ لمعرفة المزيد عن الحدث.
+              </p>
+              <a href="#" class="text-indigo-600 hover:underline mt-4 inline-block">قراءة المزيد</a>
+            </div>
+          </article>
+          <!-- يمكن إضافة المزيد من المقالات هنا -->
+        </div>
+        <!-- العمود الجانبي (البحث والفلتر) -->
+        <aside class="w-full md:w-1/3 space-y-8">
+          <!-- صندوق البحث -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-bold mb-4">بحث عن الحدث</h3>
+            <input type="text" placeholder="ابحث عن فعالية..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+          </div>
+          <!-- فلتر حسب الفئة -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-bold mb-4">تصفية حسب الفئة</h3>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="">جميع الفئات</option>
+              <option value="ثقافية">ثقافية</option>
+              <option value="رياضية">رياضية</option>
+              <option value="تقنية">تقنية</option>
+              <option value="ترفيهية">ترفيهية</option>
+            </select>
+          </div>
+          <!-- فلتر حسب المدينة -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-bold mb-4">تصفية حسب المدينة</h3>
+            <select class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="">جميع المدن</option>
+              <option value="بغداد">بغداد</option>
+              <option value="أربيل">أربيل</option>
+              <option value="البصرة">البصرة</option>
+              <option value="كربلاء">كربلاء</option>
+            </select>
+          </div>
+        </aside>
+      </div>
+      <!-- زر تحميل المزيد -->
+      <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white font-semibold py-2 px-8 rounded-full hover:bg-indigo-700 transition-colors duration-300">
+          المزيد
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم من نحن (يمكن استخدام نفس التصميم السابق) -->
+  <section id="about" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2">
+        <h2 class="text-3xl font-bold mb-4">من نحن</h2>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          نحن منصة شاملة تهدف إلى جمع وتقديم أحدث الفعاليات والأحداث في العراق، سواء كانت ثقافية، رياضية، تقنية أو ترفيهية.
+          نعمل على توفير تجربة مستخدم سلسة ومميزة تتيح للجميع الاطلاع على الفعاليات والمشاركة فيها بكل سهولة.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          انضم إلينا اليوم واكتشف فعاليات تلبي اهتماماتك وتساهم في إثراء مجتمعنا العراقي.
+        </p>
+      </div>
+      <div class="md:w-1/2 mt-6 md:mt-0">
+        <img src="https://via.placeholder.com/500x300" alt="من نحن" class="rounded-lg shadow">
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر (نفس التصميم السابق) -->
+  <footer class="bg-gray-800 text-gray-200 py-10">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">عن الموقع</h3>
+        <p class="text-sm">
+          "فعاليات العراق" هو المنصة الأولى لتجميع جميع الفعاليات والأحداث في العراق، لتسهيل عملية البحث والمشاركة في الأنشطة المتنوعة.
+        </p>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">روابط سريعة</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white">الرئيسية</a></li>
+          <li><a href="#latest" class="hover:text-white">الفعاليات</a></li>
+          <li><a href="#about" class="hover:text-white">من نحن</a></li>
+          <li><a href="#contact" class="hover:text-white">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">تواصل معنا</h3>
+        <ul class="space-y-2 text-sm">
+          <li>هاتف: 0123456789</li>
+          <li>البريد: info@events.com</li>
+          <li>العنوان: بغداد، العراق</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold mb-4">تابعنا</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-white">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.73 1.04 4.28 4.28 0 00-7.29 3.9A12.13 12.13 0 013 4.89a4.27 4.27 0 001.32 5.7 4.2 4.2 0 01-1.94-.54v.06a4.28 4.28 0 003.44 4.19 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.98A8.59 8.59 0 012 19.54a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.39-.02-.58A8.72 8.72 0 0024 4.56a8.48 8.48 0 01-2.54.7z"/>
+            </svg>
+          </a>
+          <a href="#" class="hover:text-white">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M12 2.04c-5.5 0-10 4.48-10 10 0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48v-1.71c-2.78.61-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.63.07-.62.07-.62 1 .08 1.53 1.02 1.53 1.02.89 1.51 2.34 1.07 2.91.82.09-.65.35-1.07.63-1.32-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.67-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.55 9.55 0 012.5-.34c.85 0 1.7.11 2.5.34 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.69 1.03 1.58 1.03 2.67 0 3.83-2.34 4.67-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10.02 10.02 0 0022 12.04c0-5.52-4.5-10-10-10z"/>
+            </svg>
+          </a>
+          <a href="#" class="hover:text-white">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path d="M21.35 11.1c.04.35.04.7.04 1.06 0 10.78-8.21 23.19-23.19 23.19A23.07 23.07 0 010 34.2c.52.04 1.04.04 1.56.04 3.78 0 7.25-1.25 10.07-3.36a7.88 7.88 0 01-7.35-5.45 2.47 2.47 0 00.36.03 7.53 7.53 0 005.91-2.92 7.81 7.81 0 01-6.23-7.64v-.1c1.06.59 2.28.93 3.6.97a7.82 7.82 0 01-3.48-6.5c0-1.44.38-2.78 1.06-3.95a22.15 22.15 0 0016.14 8.17c-1.06-4.02 2.51-7.65 6.9-7.65 2.05 0 3.9.87 5.2 2.27a15.9 15.9 0 005.07-1.94 7.82 7.82 0 01-3.42 4.28 15.75 15.75 0 004.57-1.25 16.72 16.72 0 01-3.95 4.09z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-4">
+        <p class="text-center text-sm">&copy; 2025 فعاليات العراق. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- نقطة التوقف لقسم التواصل -->
+  <section id="contact" class="hidden"></section>
+</body>
+</html>

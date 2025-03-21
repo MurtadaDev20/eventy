@@ -18,7 +18,7 @@
       <!-- الصورة مع تأثير -->
       <div class="md:w-1/2 flex justify-center">
           <div class="relative">
-              <img src="http://127.0.0.1:8000/storage/events/cover/cover8.jpg" 
+              <img src="{{ url('storage/events/cover/cover8.jpg') }}"
                    alt="من نحن" 
                    class="rounded-2xl shadow-lg w-80 h-80 object-cover transition duration-500 hover:scale-105 hover:rotate-2">
               

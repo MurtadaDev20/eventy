@@ -1,5 +1,5 @@
 <section class="relative text-white py-20 text-center bg-no-repeat bg-cover bg-center" 
-    style="background-image: url('http://127.0.0.1:8000/storage/events/cover/cover.jpg');">
+    style="background-image: url('{{ url('storage/events/cover/cover.jpg') }}');">
     
     <div class="container mx-auto px-4 bg-black bg-opacity-60 py-12 rounded-lg">
       

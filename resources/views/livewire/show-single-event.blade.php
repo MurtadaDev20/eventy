@@ -1,110 +1,68 @@
 <div>
-        <!-- قسم البطل (Hero) للفعالية -->
-  <section class="relative bg-gray-200">
-    <!-- صورة خلفية -->
-    <img
-      src="{{ Storage::url($event->image)}}"
-      alt="صورة الفعالية"
-      class="w-full h-72 object-cover object-center"
-    />
-    <!-- تظليل فوق الصورة -->
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <!-- محتوى البطل -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-      <h1 class="text-3xl md:text-4xl font-bold mb-2">{{$event->title}}</h1>
-      <p class="text-lg md:text-xl mb-2">{{ \Carbon\Carbon::parse($event->start_date)->locale('ar')->translatedFormat('Y-F-d') }}- {{$event->address}}</p>
-      <p class="text-sm md:text-base">{{$event->address}}</p>
+  <!-- صورة الغلاف (Hero Section) -->
+  <section class="relative h-80">
+    <img src="{{ Storage::url($event->image) }}" 
+         alt="صورة الفعالية"
+         class="w-full h-full object-cover brightness-75">
+    
+    <!-- محتوى فوق الصورة -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold drop-shadow mb-3">
+        {{ $event->title }}
+      </h1>
+      <p class="text-lg font-medium">
+        📍 {{ $event->address }} — {{ \Carbon\Carbon::parse($event->start_date)->locale('ar')->translatedFormat('Y-F-d') }}
+      </p>
     </div>
   </section>
 
-  <!-- قسم تفاصيل الفعالية -->
-  <section class="container mx-auto px-4 py-8">
-    <div class="flex flex-col md:flex-row gap-8">
-      <!-- العمود الرئيسي -->
-      <div class="w-full md:w-2/3 space-y-6">
-        <!-- وصف الفعالية -->
-        <div class="bg-white p-6 rounded shadow">
-          <h2 class="text-2xl font-bold mb-4">نبذة عن الفعالية</h2>
-          <p class="text-gray-700 leading-relaxed">
-            {!! $event->description !!}
+  <!-- محتوى تفاصيل الفعالية -->
+  <section class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-          </p>
-        </div>
-        <!-- معرض صور مصغر (Gallery) -->
-        {{-- <div class="bg-white p-6 rounded shadow">
-          <h3 class="text-xl font-semibold mb-4">معرض الصور</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <img src="https://via.placeholder.com/300x200" alt="صورة 1" class="rounded shadow" />
-            <img src="https://via.placeholder.com/300x200" alt="صورة 2" class="rounded shadow" />
-            <img src="https://via.placeholder.com/300x200" alt="صورة 3" class="rounded shadow" />
-            <img src="https://via.placeholder.com/300x200" alt="صورة 4" class="rounded shadow" />
-          </div>
-        </div> --}}
+      <!-- العمود الجانبي -->
+      <aside class="space-y-6">
 
-        <!-- قسم التقييم والتعليقات -->
-        <div class="bg-white p-6 rounded shadow space-y-6">
-          <!-- التقييم (Ratings) -->
-          {{-- <div>
-            <h3 class="text-xl font-semibold mb-2">تقييم الفعالية</h3>
-            <p class="text-gray-600 text-sm mb-4">اختر عدد النجوم للتعبير عن مدى إعجابك بالفعالية.</p>
-            <!-- أيقونات النجوم (مثال واجهة فقط) -->
-            <div class="flex items-center space-x-1 text-yellow-400">
-              <button class="focus:outline-none">
-                <svg class="w-8 h-8 fill-current hover:text-yellow-500" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.122-6.545L.367 6.91l6.564-.954L10 .5l3.07 5.455 6.564.954-4.877 4.635 1.122 6.545z"/>
-                </svg>
-              </button>
-              <button class="focus:outline-none">
-                <svg class="w-8 h-8 fill-current hover:text-yellow-500" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.122-6.545L.367 6.91l6.564-.954L10 .5l3.07 5.455 6.564.954-4.877 4.635 1.122 6.545z"/>
-                </svg>
-              </button>
-              <button class="focus:outline-none">
-                <svg class="w-8 h-8 fill-current hover:text-yellow-500" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.122-6.545L.367 6.91l6.564-.954L10 .5l3.07 5.455 6.564.954-4.877 4.635 1.122 6.545z"/>
-                </svg>
-              </button>
-              <button class="focus:outline-none">
-                <svg class="w-8 h-8 fill-current hover:text-yellow-500" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.122-6.545L.367 6.91l6.564-.954L10 .5l3.07 5.455 6.564.954-4.877 4.635 1.122 6.545z"/>
-                </svg>
-              </button>
-              <button class="focus:outline-none">
-                <svg class="w-8 h-8 fill-current hover:text-yellow-500" viewBox="0 0 20 20">
-                  <path d="M10 15l-5.878 3.09 1.122-6.545L.367 6.91l6.564-.954L10 .5l3.07 5.455 6.564.954-4.877 4.635 1.122 6.545z"/>
-                </svg>
-              </button>
-            </div>
-          </div> --}}
-        {{-- </div> --}}
-        
-
-          <!-- التعليقات (Comments) -->
-          {{-- @livewire('event-comment') --}}
-          <livewire:event-comment :key="'comments' . $event->id" :$event />
-        </div>
-      </div>
-
-      <!-- العمود الجانبي (معلومات إضافية) -->
-      <aside class="w-full md:w-1/3 space-y-6">
-        <!-- صندوق معلومات الوقت والمكان -->
-        <div class="bg-white p-6 rounded shadow">
-          <h3 class="text-xl font-semibold mb-4">تفاصيل سريعة</h3>
-          <ul class="space-y-2 text-sm text-gray-700">
-            <li><strong>يبدأ في :</strong> {{ \Carbon\Carbon::parse($event->start_date)->locale('ar')->translatedFormat('Y-F-d - h:m') }}</li>
-            <li><strong>ينتهي في :</strong> {{ \Carbon\Carbon::parse($event->end_date)->locale('ar')->translatedFormat('Y-F-d - h:m') }}</li>
-            <li><strong>العنوان : </strong> {{$event->address}}</li>
-            {{-- <li><strong>رسوم الدخول:</strong> مجانية</li> --}}
+        <!-- تفاصيل الحدث -->
+        <div class="bg-white p-5 rounded-xl shadow-lg border-l-4 border-orange-500">
+          <h3 class="font-bold text-lg mb-3 text-gray-800">تفاصيل سريعة</h3>
+          <ul class="text-sm text-gray-700 space-y-2">
+            <li>🕒 <strong>يبدأ:</strong> {{ \Carbon\Carbon::parse($event->start_date)->translatedFormat('Y-m-d - h:i A') }}</li>
+            <li>🕔 <strong>ينتهي:</strong> {{ \Carbon\Carbon::parse($event->end_date)->translatedFormat('Y-m-d - h:i A') }}</li>
+            <li>📍 <strong>العنوان:</strong> {{ $event->address }}</li>
           </ul>
         </div>
-        <!-- صندوق معلومات الاتصال -->
-        <div class="bg-white p-6 rounded shadow">
-          <h3 class="text-xl font-semibold mb-4">للتسجيل</h3>
-          {{-- <p class="text-sm text-gray-700 mb-2">للاستفسارات والحجوزات:</p> --}}
-          <p class="text-sm text-gray-700">الرابط : <a class="text-blue-500" href="{{$event->lognUrl}}">{{$event->lognUrl}}</a></p>
-          {{-- <p class="text-sm text-gray-700">البريد: info@events.com</p> --}}
+
+        <!-- رابط التسجيل -->
+        <div class="bg-white p-5 rounded-xl shadow-lg border-l-4 border-indigo-500">
+          <h3 class="font-bold text-lg mb-3 text-gray-800">رابط التسجيل</h3>
+          <a href="{{ $event->lognUrl }}" 
+             target="_blank"
+             class="text-indigo-600 hover:text-indigo-800 text-sm underline break-words">
+            {{ $event->lognUrl }}
+          </a>
         </div>
+
       </aside>
+      <!-- العمود الرئيسي -->
+      <div class="md:col-span-2 space-y-8">
+
+        <!-- وصف الفعالية -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">نبذة عن الفعالية</h2>
+          <div class="prose prose-gray max-w-none leading-loose">
+            {!! $event->description !!}
+          </div>
+        </div>
+
+        <!-- قسم التعليقات -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <livewire:event-comment :key="'comments' . $event->id" :$event />
+        </div>
+
+      </div>
+
+      
     </div>
   </section>
 </div>

@@ -8,11 +8,11 @@
             <p>لاتوجد تعليقات</p>
             @else
             @foreach ($this->comments as $comment)
-          <div class="bg-gray-100 p-3 rounded">
+          <div class="bg-gray-100 p-3 rounded text-right">
             
             <div class="flex items-center justify-between mb-2">
               <span class="font-bold text-sm">{{$comment->user->name}}</span>
-              <span class="text-xs text-gray-500">{{$comment->created_at->diffForHumans()}}</span>
+              <span class="text-xs text-orange-500">{{$comment->created_at->diffForHumans()}}</span>
             </div>
             <p class="text-gray-700 text-sm">{{$comment->body}}</p>
           </div>

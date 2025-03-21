@@ -11,8 +11,34 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <!-- استدعاء مكتبة Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
   <!-- تأثيرات الأنيميشن المخصصة -->
   <style>
+    @keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 2s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -26,6 +52,48 @@
     .animate-fadeInUp {
       animation: fadeInUp 0.8s ease-out both;
     }
+
+    @media (min-width: 1536px) {
+    .container {
+        max-width: 1280px !important ;
+    }
+    }
+
+    @media (max-width: 640px) {
+    .container {
+        text-align: center !important;
+      
+    }
+    .more-info {
+        margin: auto !important;
+      
+    }
+}
+
+    .almarai-light {
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.almarai-regular {
+  font-family: "Almarai", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.almarai-bold {
+  font-family: "Almarai", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.almarai-extrabold {
+  font-family: "Almarai", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
   </style>
   <!-- Scripts -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -73,6 +141,24 @@
     // تهيئة WOW.js بعد تحميل الصفحة
     new WOW().init();
   </script>
+
+<script>
+  var swiper = new Swiper(".mySwiperCategories", {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true, // تشغيل اللوب
+      autoplay: {
+          delay: 2500, // مدة الانتظار بين التمريرات (2.5 ثانية)
+          disableOnInteraction: false, // يستمر التشغيل حتى بعد التفاعل
+      },
+      breakpoints: {
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 }
+      }
+  });
+</script>
+
   @stack('modals')
 
   @livewireScripts

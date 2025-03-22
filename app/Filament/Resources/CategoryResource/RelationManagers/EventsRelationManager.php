@@ -1,35 +1,25 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\CategoryResource\RelationManagers;
 
 use App\Enums\GovernorateEnum;
-use App\Filament\Resources\EventResource\Pages;
-use App\Filament\Resources\EventResource\RelationManagers;
-use App\Filament\Resources\EventResource\RelationManagers\CommentsRelationManager;
-use App\Models\Category;
-use App\Models\Event;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class EventResource extends Resource
-{ 
-    protected static ?string $model = Event::class;
+class EventsRelationManager extends RelationManager
+{
+    protected static string $relationship = 'events';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Events';
-
-    public static function form(Form $form): Form
+    public function form(Form $form): Form
     {
-        // dd(auth()->user()->id);
         return $form
-        
             ->schema([
                 Section::make('Main Content')->schema(
                     [
@@ -63,13 +53,13 @@ class EventResource extends Resource
                     Forms\Components\Toggle::make('featured')
                         ->required(),
                     ])->columns(1),
-                    
-                    ]);
+            ]);
     }
 
-    public static function table(Table $table): Table
+    public function table(Table $table): Table
     {
         return $table
+            ->recordTitleAttribute('title')
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->searchable()
@@ -104,51 +94,17 @@ class EventResource extends Resource
             ->filters([
                 //
             ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make(),
+            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
-    }
-
-    public static function beforeCreate(FormRecord $record)
-    {
-        $record->created_by = auth()->id();
-    }
-    public static function getRelations(): array
-    {
-        return [
-            CommentsRelationManager::class,
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListEvents::route('/'),
-            'create' => Pages\CreateEvent::route('/create'),
-            'edit' => Pages\EditEvent::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        $user = auth()->user();
-
-        // If user has "view any" permission, show all events
-        if ($user->can('view_any_event')) {
-            return parent::getEloquentQuery();
-        }
-
-        // Else, only show their own events
-        return parent::getEloquentQuery()->where('created_by', $user->id);
-    }
-
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
     }
 }

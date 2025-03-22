@@ -19,6 +19,7 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Users';
 
     public static function form(Form $form): Form
     {
@@ -37,7 +38,12 @@ class UserResource extends Resource
                 Forms\Components\Select::make('role')
                     ->options(User::ROLES)
                     ->required(),
-            ]);
+                    Forms\Components\Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
+                            ]);
     }
 
     public static function table(Table $table): Table
@@ -88,5 +94,10 @@ class UserResource extends Resource
             'create' => Pages\CreateUser::route('/create'),
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
     }
 }

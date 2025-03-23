@@ -131,7 +131,7 @@
     var swiperFeatured = new Swiper(".mySwiperFeatured", {
       loop: true,
       spaceBetween: 20,
-      autoplay: { delay: 3000 },
+      autoplay: { delay: 4000 },
       breakpoints: {
         640: { slidesPerView: 3 },
         768: { slidesPerView: 2 },
@@ -148,7 +148,7 @@
       spaceBetween: 20,
       loop: true, // تشغيل اللوب
       autoplay: {
-          delay: 2500, // مدة الانتظار بين التمريرات (2.5 ثانية)
+          delay: 3000, // مدة الانتظار بين التمريرات (2.5 ثانية)
           disableOnInteraction: false, // يستمر التشغيل حتى بعد التفاعل
       },
       breakpoints: {

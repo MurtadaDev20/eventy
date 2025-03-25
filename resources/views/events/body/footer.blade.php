@@ -11,23 +11,23 @@
       <div>
         <h3 class="text-xl font-semibold mb-4">روابط سريعة</h3>
         <ul class="space-y-2 text-sm">
-          <li><a href="#" class="hover:text-white">الرئيسية</a></li>
-          <li><a href="#latest" class="hover:text-white">الفعاليات</a></li>
-          <li><a href="#about" class="hover:text-white">من نحن</a></li>
-          <li><a href="#contact" class="hover:text-white">تواصل معنا</a></li>
+          <li><a href="{{ route('events') }}  " wire:navigate class="hover:text-white">الرئيسية</a></li>
+          <li><a href="{{ route('allevent') }}  " wire:navigate class="hover:text-white">الفعاليات</a></li>
+          <li><a href="{{ route('events','#about') }}" class="hover:text-white">من نحن</a></li>
+          <li><a href="{{ route('contactus') }}" wire:navigate class="hover:text-white">تواصل معنا</a></li>
         </ul>
       </div>
       <!-- معلومات الاتصال -->
       <div>
         <h3 class="text-xl font-semibold mb-4">تواصل معنا</h3>
         <ul class="space-y-2 text-sm">
-          <li>هاتف: 0123456789</li>
-          <li>البريد: info@events.com</li>
+          <li>هاتف: 07725933735</li>
+          <li>البريد: eventy@alphawave-tech.com</li>
           <li>العنوان: بغداد، العراق</li>
         </ul>
       </div>
       <!-- روابط الشبكات الاجتماعية -->
-      <div>
+      {{-- <div>
         <h3 class="text-xl font-semibold mb-4">تابعنا</h3>
         <div class="flex space-x-4">
           <a href="#" class="hover:text-white">
@@ -81,7 +81,8 @@
             </svg>
           </a>
         </div>
-      </div>
+      </div> --}}
+      <div></div>
       <div class="border-t border-gray-700 mt-8 pt-4">
         <p class="text-center text-sm">&copy; 2025 فعاليات العراق. جميع الحقوق محفوظة.</p>
       </div>

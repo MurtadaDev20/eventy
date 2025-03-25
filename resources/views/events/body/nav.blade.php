@@ -14,7 +14,7 @@
         <li><a href="{{ route('events') }}  " wire:navigate class="hover:text-gray-300 transition">الرئيسية</a></li>
         <li><a href="{{ route('allevent') }}  " wire:navigate class="hover:text-gray-300 transition">الفعاليات</a></li>
         <li><a href="{{ route('events','#about') }}" wire:navigate class="hover:text-gray-300 transition">من نحن</a></li>
-        <li><a href="#contact" class="hover:text-gray-300 transition">تواصل معنا</a></li>
+        <li><a href="{{ route('contactus') }}" wire:navigate class="hover:text-gray-300 transition">تواصل معنا</a></li>
         <li>
             @auth
               @include('events.body.header-auth')

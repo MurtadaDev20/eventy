@@ -1,34 +1,63 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>إعادة تعيين كلمة المرور</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md bg-white p-8 rounded shadow-md">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">نسيت كلمة المرور؟</h2>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+    <p class="text-sm text-gray-600 mb-4 text-center leading-relaxed">
+      لا توجد مشكلة! فقط أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور.
+    </p>
 
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
-            </div>
-        @endsession
+    <!-- Session status -->
+    @if (session('status'))
+      <div class="mb-4 text-sm text-green-600 font-medium text-center">
+        {{ session('status') }}
+      </div>
+    @endif
 
-        <x-validation-errors class="mb-4" />
+    <!-- Validation Errors -->
+    @if ($errors->any())
+      <div class="mb-4 bg-red-100 text-red-700 px-4 py-2 rounded text-sm">
+        <ul class="list-disc pr-5">
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+    <form method="POST" action="{{ route('password.email') }}">
+      @csrf
 
-            <div class="block">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
+      <!-- Email Field -->
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value="{{ old('email') }}"
+          required
+          autofocus
+          autocomplete="username"
+          class="w-full px-4 py-2 border rounded focus:outline-none focus:ring focus:border-orange-500"
+          placeholder="example@email.com"
+        />
+      </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+      <!-- Submit Button -->
+      <div class="mt-6">
+        <button type="submit" class="w-full bg-orange-600 text-white py-2 rounded hover:bg-orange-700 transition">
+          إرسال رابط إعادة التعيين
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

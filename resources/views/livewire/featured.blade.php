@@ -1,5 +1,5 @@
 <div>
-  @livewire('statistics')
+  {{-- @livewire('statistics') --}}
 {{-- </livewirw:statistics> --}}
     <section id="featured" class="py-12 bg-white-800">
         <div class="container mx-auto px-4">

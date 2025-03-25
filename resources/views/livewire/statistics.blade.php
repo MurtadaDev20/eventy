@@ -35,12 +35,18 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.2/countUp.umd.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const options = { duration: 3 };
+    function runCounters() {
+      const options = { duration: 2 };
   
-      new countUp.CountUp('visitors', 720391, options).start();
-      new countUp.CountUp('categories', 12, options).start();
-      new countUp.CountUp('events', 340, options).start();
-    });
+      new countUp.CountUp('visitors', @json($visitors), options).start();
+      new countUp.CountUp('categories', @json($catigories), options).start();
+      new countUp.CountUp('events', @json($events), options).start();
+    }
+  
+    // تشغيل العدادات عند أول تحميل
+    document.addEventListener('DOMContentLoaded', runCounters);
+  
+    // إذا تم تحميل الـ component عبر wire:navigate أو Livewire
+    document.addEventListener('livewire:navigated', runCounters);
   </script>
 </div>

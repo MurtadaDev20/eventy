@@ -1,7 +1,7 @@
 <nav dir="ltr" class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <!-- شعار الموقع -->
-      <div class="text-2xl font-bold">فعاليات العراق</div>
+      <div class="text-2xl font-bold">فعاليات <span class="text-orange-600">العراق</span></div>
       <!-- زر قائمة الجوال -->
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -29,8 +29,8 @@
       <ul class="px-4 pt-2 pb-4 space-y-4">
         <li><a href="{{ route('events') }}  " wire:navigate class="block hover:text-gray-300 transition">الرئيسية</a></li>
         <li><a href="{{ route('allevent') }}  " wire:navigate class="block hover:text-gray-300 transition">الفعاليات</a></li>
-        <li><a href="#about" class="block hover:text-gray-300 transition">من نحن</a></li>
-        <li><a href="#contact" class="block hover:text-gray-300 transition">تواصل معنا</a></li>
+        <li><a href="{{ route('events','#about') }}" class="block hover:text-gray-300 transition">من نحن</a></li>
+        <li><a href="{{ route('contactus') }}" wire:navigate class="block hover:text-gray-300 transition">تواصل معنا</a></li>
         <li>
           @auth
           <div name="content">

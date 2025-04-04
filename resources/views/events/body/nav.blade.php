@@ -1,7 +1,7 @@
 <nav dir="ltr" class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
     <div class="container mx-auto px-4 py-4 flex items-center justify-between">
       <!-- شعار الموقع -->
-      <div class="text-2xl font-bold">فعاليات <span class="text-orange-600">العراق</span></div>
+      <div class="text-2xl font-bold"> إيفين<span class="text-orange-600">تي</span></div>
       <!-- زر قائمة الجوال -->
       <button id="menu-toggle" class="md:hidden focus:outline-none">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
